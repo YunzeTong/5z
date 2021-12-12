@@ -4,39 +4,30 @@ import 'antd/dist/antd.css';
 import './index.css';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import {
-//   DesktopOutlined,
-//   PieChartOutlined,
-//   FileOutlined,
-//   TeamOutlined,
-  UserOutlined,
-  CoffeeOutlined,
-  DashboardOutlined,
-  FireFilled
+    UserOutlined,
+    CoffeeOutlined,
+    DashboardOutlined,
+    FireFilled
 } from '@ant-design/icons';
-import ColumnChart from "./columnchart"
-import PieChart from "./piechart";
+import ColumnChart from "./columnchart";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
-
-export default class Map extends Component{
+    
+export default class MyMap extends Component{
     constructor(){
         super()
         this.state = {
             father_dir : "",
-            son_dir: "",
-
-
+            son_dir: ""
         }
-
     }
+
     state = {
         collapsed: false,
-      };
-    
+      };  
     onCollapse = collapsed => {
-    // console.log(collapsed);
-    this.setState({ collapsed });
+        this.setState({ collapsed });
     };
 
     change_dir = (father, son) => {
@@ -45,7 +36,6 @@ export default class Map extends Component{
             son_dir: son
         })
     }
-
     //跳转三部曲
     go_map = () => {
         window.location.href = '/map'
@@ -61,7 +51,7 @@ export default class Map extends Component{
 
 
     render(){
-        document.title = "浏览产业地图";
+        document.title = "我的产业地图";
         const { collapsed } = this.state;
         return (
             
@@ -69,7 +59,7 @@ export default class Map extends Component{
         <Sider theme="dark" collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
           <div className="logo" ></div>
           <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
-          <SubMenu key="sub1" icon={<UserOutlined />} title="卫生">
+            <SubMenu key="sub1" icon={<UserOutlined />} title="卫生">
               <Menu.Item key="1" onClick={()=>this.change_dir("卫生", "卫生1")}>卫生1</Menu.Item>
               <Menu.Item key="2" onClick={()=>this.change_dir("卫生", "卫生2")}>卫生2</Menu.Item>
             </SubMenu>
@@ -92,10 +82,10 @@ export default class Map extends Component{
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background">
-      <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']}>
+      <Menu theme="light" mode="horizontal" defaultSelectedKeys={['3']}>
         <Menu.Item key="1" onClick={this.go_myinfo.bind(this)}>我的账号</Menu.Item>
-        <Menu.Item key="2" onClick={this.go_map}>产业地图预览</Menu.Item>
-        <Menu.Item key="3" onClick={this.go_mymap.bind(this)}>我的产业地图</Menu.Item>
+        <Menu.Item key="2" onClick={this.go_map.bind(this)}>产业地图预览</Menu.Item>
+        <Menu.Item key="3" onClick={this.go_mymap}>我的产业地图</Menu.Item>
         <Menu.Item key="4" danger>退出登录</Menu.Item>
       </Menu>
     </Header>
@@ -114,11 +104,7 @@ export default class Map extends Component{
             </div>
             <br />
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              {/* <PieChart></PieChart> */}
-              <PieChart 
-              firstpath={this.state.father_dir}
-              secondpath={this.state.son_dir}              
-              ></PieChart>
+              2
             </div>
             <br/>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
