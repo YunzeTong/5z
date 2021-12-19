@@ -4,7 +4,9 @@ import Myinfo from "./myinfo";
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Login from "./pages/login/login";
 import Register from "./pages/Register/register";
-import ForgetPwd from "./pages/ForgetPwd/ForgetPwd"
+import ForgetPwd from "./pages/ForgetPwd/ForgetPwd";
+import AdminMain from "./adminpages/AdminMain"
+
 
 function App() {
   return ( 
@@ -16,6 +18,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/forgetPwd" component={ForgetPwd} />
+            <Route path="/admininfo" component={AdminMain} />
             <Redirect to= "/map" />
             {/* <Route path="/" exact render={() => <Redirect to="/map" />}/> */}
         </Switch> 
