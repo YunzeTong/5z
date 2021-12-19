@@ -3780,6 +3780,11 @@
   "resolved" "https://registry.npm.taobao.org/cookie-signature/download/cookie-signature-1.0.6.tgz"
   "version" "1.0.6"
 
+"cookie@^0.3.1":
+  "integrity" "sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s="
+  "resolved" "https://registry.nlark.com/cookie/download/cookie-0.3.1.tgz"
+  "version" "0.3.1"
+
 "cookie@0.4.0":
   "integrity" "sha1-vrQ35wIrO21JAZ0IhmUwPr6cFLo="
   "resolved" "https://registry.nlark.com/cookie/download/cookie-0.4.0.tgz"
@@ -4590,6 +4595,19 @@
     "inherits" "^2.0.1"
     "readable-stream" "^2.0.0"
     "stream-shift" "^1.0.0"
+
+"echarts-bmap@^1.0.3":
+  "integrity" "sha1-4sBF7Ku+7NsGwp/dWGR0GaIHpCw="
+  "resolved" "https://registry.npmmirror.com/echarts-bmap/download/echarts-bmap-1.0.3.tgz"
+  "version" "1.0.3"
+
+"echarts@^5.2.2":
+  "integrity" "sha1-7DyLKhUcu6cbo8LHz5svIEfOQ3A="
+  "resolved" "https://registry.npmmirror.com/echarts/download/echarts-5.2.2.tgz"
+  "version" "5.2.2"
+  dependencies:
+    "tslib" "2.3.0"
+    "zrender" "5.2.1"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
@@ -9857,6 +9875,14 @@
     "regenerator-runtime" "^0.13.7"
     "whatwg-fetch" "^3.4.1"
 
+"react-cookies@^0.1.1":
+  "integrity" "sha1-KjWAfgT1oT9YzNGp+2ZXRQaHPIg="
+  "resolved" "https://registry.nlark.com/react-cookies/download/react-cookies-0.1.1.tgz"
+  "version" "0.1.1"
+  dependencies:
+    "cookie" "^0.3.1"
+    "object-assign" "^4.1.1"
+
 "react-dev-utils@^11.0.3":
   "integrity" "sha1-p8y2Alehyi4O/nqD445nANF6o3o="
   "resolved" "https://registry.npmmirror.com/react-dev-utils/download/react-dev-utils-11.0.4.tgz"
@@ -11610,6 +11636,11 @@
   "resolved" "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz"
   "version" "2.3.1"
 
+"tslib@2.3.0":
+  "integrity" "sha1-gDuM2rPhK6WBpMpByIObuw2ssJ4="
+  "resolved" "https://registry.nlark.com/tslib/download/tslib-2.3.0.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.0.tgz"
+  "version" "2.3.0"
+
 "tsutils@^3.17.1", "tsutils@^3.21.0":
   "integrity" "sha1-tIcX05TOpsHglpg+7Vjp1hcVtiM="
   "resolved" "https://registry.npm.taobao.org/tsutils/download/tsutils-3.21.0.tgz?cache=0&sync_timestamp=1615138205781&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftsutils%2Fdownload%2Ftsutils-3.21.0.tgz"
@@ -12506,3 +12537,10 @@
   "integrity" "sha1-ApTrPe4FAo0x7hpfosVWpqrxChs="
   "resolved" "https://registry.nlark.com/yocto-queue/download/yocto-queue-0.1.0.tgz?cache=0&sync_timestamp=1628813299341&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fyocto-queue%2Fdownload%2Fyocto-queue-0.1.0.tgz"
   "version" "0.1.0"
+
+"zrender@5.2.1":
+  "integrity" "sha1-X0u9qRW6bUErCxncJDG+qtBUF7s="
+  "resolved" "https://registry.nlark.com/zrender/download/zrender-5.2.1.tgz"
+  "version" "5.2.1"
+  dependencies:
+    "tslib" "2.3.0"

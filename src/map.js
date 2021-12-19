@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+// import 'echarts/map/js/china'
 import 'antd/dist/antd.css';
 import './index.css';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
@@ -15,18 +16,33 @@ import {
 } from '@ant-design/icons';
 import ColumnChart from "./columnchart"
 import PieChart from "./piechart";
-
+import Mapchart from "./mapchart";
+import axios from "axios";
+import cookie from 'react-cookies'
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default class Map extends Component{
+
+  componentWillUnmount(){
+    
+  }
     constructor(){
+      console.log(111)
+    console.log(cookie.load('token'))
+    axios.get(
+      'http://192.168.43.4:8080/api/test/user', {
+        headers:{
+          'Authorization':"Bearer "+cookie.load('token')
+        }
+            }).then(function(response){
+              console.log(response)
+            })
+            
         super()
         this.state = {
             father_dir : "",
             son_dir: "",
-
-
         }
 
     }
@@ -121,8 +137,11 @@ export default class Map extends Component{
               ></PieChart>
             </div>
             <br/>
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              3
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 660 }}>
+              <Mapchart
+              firstpath={this.state.father_dir}
+              secondpath={this.state.son_dir}> 
+              </Mapchart>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Presented By RedCloudRule</Footer>

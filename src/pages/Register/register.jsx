@@ -45,25 +45,26 @@ class Register extends Component {
                 console.log(username,password,email,pwdrepeated)
                 return message.error("数据格式非法")
             }
-        axios.post('http://localhost:8080/register', {
-            username: this.state.username,
-            password: this.state.password,
-            email:this.state.email
-        })
-            .then(function (response) {
-                const data = response.data
-                const result = data.status
-                if (result === 'success'){
-                    //注册成功返回登陆界面
-                    window.location.href = '/login'
-                }
-                else{
-                    message.warning('注册错误，请联系管理员', 3);
-                }
+            axios.post('http://192.168.43.4:8080/api/auth/signup', {
+                username: this.state.username,
+                password: this.state.password,
+                email:this.state.email
             })
-            .catch(function (error) {
-                console.log(error);
-            });
+                .then(function (response) {
+                    console.log(response)
+                    const data = response.data
+                    const result = data.message
+                    if (result === 'User registered successfully!'){
+                        //注册成功返回登陆界面
+                        window.location.href = '/login'
+                    }
+                    else{
+                        message.warning('注册错误，请联系管理员', 3);
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
     }
     handleEmail = e=>{
         this.setState({email: e.target.value})

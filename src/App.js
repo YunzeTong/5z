@@ -6,7 +6,7 @@ import Login from "./pages/login/login";
 import Register from "./pages/Register/register";
 import ForgetPwd from "./pages/ForgetPwd/ForgetPwd";
 import AdminMain from "./adminpages/AdminMain"
-
+import Page from "./mychart";
 
 function App() {
   return ( 
@@ -14,6 +14,7 @@ function App() {
         <Switch>
             <Route path='/mymap' component={MyMap}/>
             <Route path='/myinfo' component={Myinfo}/>
+            <Route path='/test' component={Page}/>
             <Route path='/map' component={Map}/>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />

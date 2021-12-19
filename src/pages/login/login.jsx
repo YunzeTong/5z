@@ -3,6 +3,7 @@ import { Form, Input, Button, Radio,message} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import axios from 'axios';
+import cookie from 'react-cookies'
 import 'antd/dist/antd.css';
 import './login.css'
 
@@ -11,11 +12,13 @@ class Login extends Component {
         username: '',
         password: '',
         usertype:'user',
+        token:null
     }
     //跳转注册界面
     
     handleSubmit=()=>{
         let that = this
+        let token
         const {username, password} = that.state
         const reg1 = /[0-9A-Za-z]{6,12}$/
         const reg2 = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/
@@ -23,24 +26,35 @@ class Login extends Component {
         if (username === '' || password === '' || !reg1.test(username) || !reg2.test(password)) 
              return message.error("数据格式非法")
         else{
-            axios.post('http://localhost:8080/login', {
+            axios.post('http://192.168.43.4:8080/api/auth/login', {
                 username: this.state.username,
                 password: this.state.password,
-                usertype: this.state.usertype
+                //usertype: this.state.usertype
             })
                 .then(function (response) {
-                    const data = response.data
-                    const result = data.status
-                    if (result === 'success'){
-                        if(this.state.usertype==='user')
-                        //this.props.history.push({ pathname: '/index', state: { username: , psw: passw, type:tp } });
-                        window.location.href = '/map';
-                        if(this.state.usertype==='administrator')
-                        window.location.href = '/gindex';
+                    
+                    token = response.data.accessToken
+                    cookie.save("token",token,{path:"/"})
+                   
+                    // if (response.data.accessToken) {
+                    //     localStorage.setItem("user", JSON.stringify(response.data));
+                    //   }
+                    if (token !==undefined ){
+                        
+                        that.props.history.push({ pathname: '/index', state: { username: that.state.username, psw: that.state.password } });
+                        // if(this.state.usertype==='user')
+                        // this.props.history.push({ pathname: '/index', state: { username: this.state.username, psw: this.state.password, type:this.state.usertype } });
+                        // //window.location.href = '/index';
+                        // if(this.state.usertype==='administrator')
+                        // this.props.history.push({ pathname: '/gindex', state: { username: this.state.username, psw: this.state.password, type:this.state.usertype } });
                     }
                     else{
                         message.warning('账号或密码错误', 2)
                     }
+                }).then(()=>{
+                    this.setState({
+                        token:token
+                    })
                 })
                 .catch(function (error) {
                     console.log(error);
