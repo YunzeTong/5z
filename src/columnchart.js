@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import { color } from "echarts";
 import { Component } from "react";
 
 export default class ColumnChart extends Component{
@@ -42,30 +43,16 @@ export default class ColumnChart extends Component{
     }
 
     colchart (){
-        // option = {
-        //     xAxis: {
-        //       min:2012
-        //     },
-        //     yAxis: {
-        //       min:90000
-        //     },
-        //     series: [
-        //       {
-        //         symbolSize: 20,
-        //         data: [
-        //           [2013, 118600],
-        //           [2014, 112782],
-        //           [2015, 109953],
-        //           [2016, 105911],
-        //           [2017, 103190],
-        //           [2018, 98605],
-        //           [2019, 98837],
-        //           [2020, 90825]
-        //         ],
-        //         type: 'scatter'
-        //       }
-        //     ]
-        //   };
+        const colorList = [
+            '#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00',
+            '#4f81bd',
+            '#c0504d',
+            '#9bbb59',
+            '#604a7b',
+            '#948a54',
+            '#e46c0b',
+            '#'
+          ];
         console.log("in func",this.props)
         var echarts = require('echarts')
         var myChart = echarts.init(document.querySelector('.bar1'));
@@ -596,12 +583,13 @@ export default class ColumnChart extends Component{
                     },
                     series: [
                       {
-                        data: [54866, {value:50627, color:'#333333'}, 
-                                    {value:45884, color:'#4f81bd'},
-                                    {value:45347, color:'#c0504d'},
-                                    {value:45160, color:'#9bbb59'},
-                                    {value:43967, color:'#948a54'},
-                                    {value:44921, color:'#e46c0b'}	],
+                        data: [ {value:54866, itemStyle:{color:colorList[6]}}, 
+                                {value:50627, itemStyle:{color:colorList[0]}}, 
+                                {value:45884, itemStyle:{color:colorList[1]}},
+                                {value:45347, itemStyle:{color:colorList[2]}},
+                                {value:45160, itemStyle:{color:colorList[3]}},
+                                {value:43967, itemStyle:{color:colorList[4]}},
+                                {value:44921, itemStyle:{color:colorList[5]}}	],
                         type: 'bar',
                         showBackground: true,
                         backgroundStyle: {
@@ -621,7 +609,16 @@ export default class ColumnChart extends Component{
                     },
                     series: [
                       {
-                        data: [9630.8, 10000.76, 9473.84, 9570.0, 9276.65, 9468.15, 9590.43, 10283.3],
+                        data: [
+                            {value: 9630.8, itemStyle:{color:colorList[0]}},
+                            {value: 10000.76, itemStyle:{color:colorList[1]}},
+                            {value: 9473.84, itemStyle:{color:colorList[2]}},
+                            {value: 9570.0, itemStyle:{color:colorList[3]}},
+                            {value: 9276.65, itemStyle:{color:colorList[4]}},
+                            {value: 9468.15, itemStyle:{color:colorList[5]}},
+                            {value: 9590.43, itemStyle:{color:colorList[6]}},
+                            {value: 10283.3, itemStyle:{color:colorList[7]}}
+                        ],
                         type: 'bar',
                         showBackground: true,
                         backgroundStyle: {
@@ -641,7 +638,18 @@ export default class ColumnChart extends Component{
                     },
                     series: [
                       {
-                        data: [3261.89, 3534.44, 3527.99, 3535.2, 3648.22, 3811.12, 3963.93, 4059.7, 4343.61, 3329.74],
+                        data: [
+                            {value: 3261.89, itemStyle:{color:colorList[0]}},
+                            {value: 3534.44, itemStyle:{color:colorList[1]}},
+                            {value: 3527.99, itemStyle:{color:colorList[2]}},
+                            {value: 3535.2, itemStyle:{color:colorList[3]}},
+                            {value: 3648.22, itemStyle:{color:colorList[4]}},
+                            {value: 3811.12, itemStyle:{color:colorList[5]}},
+                            {value: 3963.93, itemStyle:{color:colorList[6]}},
+                            {value: 4059.7, itemStyle:{color:colorList[7]}},
+                            {value: 4343.61, itemStyle:{color:colorList[8]}},
+                            {value: 3329.74, itemStyle:{color:colorList[9]}},
+                        ],
                         type: 'bar',
                         showBackground: true,
                         backgroundStyle: {
