@@ -1,21 +1,7 @@
 import React from "react";
 import 'antd/dist/antd.css';
 import {
-    Button,
-    Card,
-    Layout,
-    List,
-    Drawer,
-    InputNumber,
-    Tag,
-    Form,
-    Divider,
-    Col,
-    Row,
-    Statistic,
-    Progress,
-    Modal,
-    Input
+    Button
 } from "antd";
 class Administrator extends React.Component {
     render() {

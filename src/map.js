@@ -23,13 +23,13 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default class Map extends Component{
-
-  componentWillUnmount(){
-    
-  }
     constructor(){
-      console.log(111)
-    console.log(cookie.load('token'))
+        super()
+        this.state = {
+            father_dir : "",
+            son_dir: "",
+        }
+    // console.log(cookie.load('token'))
     axios.get(
       'http://192.168.43.4:8080/api/test/user', {
         headers:{
@@ -38,12 +38,7 @@ export default class Map extends Component{
             }).then(function(response){
               console.log(response)
             })
-            
-        super()
-        this.state = {
-            father_dir : "",
-            son_dir: "",
-        }
+        
 
     }
     state = {
@@ -86,22 +81,22 @@ export default class Map extends Component{
           <div className="logo" ></div>
           <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
           <SubMenu key="sub1" icon={<UserOutlined />} title="卫生">
-              <Menu.Item key="1" onClick={()=>this.change_dir("卫生", "卫生1")}>卫生1</Menu.Item>
-              <Menu.Item key="2" onClick={()=>this.change_dir("卫生", "卫生2")}>卫生2</Menu.Item>
+              <Menu.Item key="1" onClick={()=>this.change_dir("卫生", "社会卫生总支出")}>社会卫生总支出</Menu.Item>
+              <Menu.Item key="2" onClick={()=>this.change_dir("卫生", "医疗卫生机构数")}>医疗卫生机构数</Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" icon={<DashboardOutlined />} title="能源">
-              <Menu.Item key="3" onClick={()=>this.change_dir("能源", "能源1")}>能源1</Menu.Item>
-              <Menu.Item key="4" onClick={()=>this.change_dir("能源", "能源2")}>能源2</Menu.Item>
-              <Menu.Item key="5" onClick={()=>this.change_dir("能源", "能源3")}>能源3</Menu.Item>
+              <Menu.Item key="3" onClick={()=>this.change_dir("能源", "能源工业投资")}>能源工业投资</Menu.Item>
+              <Menu.Item key="4" onClick={()=>this.change_dir("能源", "石油消费总量")}>石油消费总量</Menu.Item>
+              <Menu.Item key="5" onClick={()=>this.change_dir("能源", "电力能源消费总量")}>电力能源消费总量</Menu.Item>
             </SubMenu>
             <SubMenu key="sub3" icon={<FireFilled />} title="资源">
-              <Menu.Item key="6">资源1</Menu.Item>
-              <Menu.Item key="7">资源2</Menu.Item>
+              <Menu.Item key="6" onClick={()=>this.change_dir("资源", "国家资源税")}>国家资源税</Menu.Item>
+              <Menu.Item key="7" onClick={()=>this.change_dir("资源", "水资源总量")}>水资源总量</Menu.Item>
             </SubMenu>
             <SubMenu key="sub4" icon={<CoffeeOutlined />} title="住宿和餐饮">
-              <Menu.Item key="8">1</Menu.Item>
-              <Menu.Item key="9">2</Menu.Item>
-              <Menu.Item key="10">3</Menu.Item>
+              <Menu.Item key="8" onClick={()=>this.change_dir("住宿和餐饮数", "住宿和餐饮企业数")}>住宿和餐饮企业数</Menu.Item>
+              <Menu.Item key="9" onClick={()=>this.change_dir("住宿和餐饮数", "住宿和餐饮营业额")}>住宿和餐饮营业额</Menu.Item>
+              <Menu.Item key="10" onClick={()=>this.change_dir("住宿和餐饮数", "住宿和餐饮营业面积")}>住宿和餐饮营业面积</Menu.Item>
             </SubMenu>
             
           </Menu>

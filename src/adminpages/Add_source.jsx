@@ -4,8 +4,6 @@ import {
     Button,
     Form,
     Input,
-    Modal,
-    Upload,Dragger
 } from "antd";
 class  Add_source extends React.Component {
     render() {

@@ -26,7 +26,7 @@ class Login extends Component {
         if (username === '' || password === '' || !reg1.test(username) || !reg2.test(password)) 
              return message.error("数据格式非法")
         else{
-            axios.post('http://192.168.43.4:8080/api/auth/login', {
+            axios.post('http://192.168.10.72:8080/api/auth/login', {
                 username: this.state.username,
                 password: this.state.password,
                 //usertype: this.state.usertype

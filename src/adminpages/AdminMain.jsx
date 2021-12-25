@@ -1,28 +1,24 @@
 import React from "react";
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import {
-  Button,
-  Card,
-  List,
-  Drawer,
-  InputNumber,
-  Tag,
-  Form,
-  Divider,
-  Col,
-  Row,
-  Statistic,
-  Progress,
-  Modal,
-  Input
-} from "antd";
+// import {
+//   Button,
+//   Card,
+//   List,
+//   Drawer,
+//   InputNumber,
+//   Tag,
+//   Form,
+//   Divider,
+//   Col,
+//   Row,
+//   Statistic,
+//   Progress,
+//   Modal,
+//   Input
+// } from "antd";
 import {HashRouter, Link, Route, BrowserRouter as Router,Redirect} from 'react-router-dom'
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 // import energy from './components/energy';

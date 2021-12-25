@@ -434,7 +434,7 @@ const geoCoordMap = {
   大庆: [125.03, 46.58]
 };
 const convertData = function (data) {
-    console.log("convert")
+    // console.log("convert")
   var res = [];
   for (var i = 0; i < data.length; i++) {
     var geoCoord = geoCoordMap[data[i].name];
@@ -608,7 +608,7 @@ option = {
       data: convertData(
         data
           .sort(function (a, b) {
-              console.log("sort")
+            //   console.log("sort")
             return b.value - a.value;
           })
           .slice(0, 6)
