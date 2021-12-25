@@ -15,13 +15,14 @@ export default class PieChart extends Component{
 
 
     componentWillReceiveProps(nextProps){
-        console.log("refresh")
+        // console.log("refresh")
         this.setState({
             firstpath : nextProps.firstpath,
             secondpath : nextProps.secondpath
         })
-        console.log(this.state.firstpath)
-        console.log(this.state.secondpath)
+        // console.log(this.state.firstpath)
+        // console.log(this.state.secondpath)
+        this.initEcharts()
     }
 
     test(){
@@ -38,7 +39,7 @@ export default class PieChart extends Component{
         //然后异步执行echarts的初始化函数
         newPromise.then(() => {
             //  此dom为echarts图标展示dom
-            console.log("start to enit")
+            // console.log("start to enit")
             this.piechart();
         })
     }
@@ -59,6 +60,30 @@ export default class PieChart extends Component{
     piechart(){
         var echarts = require('echarts')
         var myChart = echarts.init(document.querySelector('.pie1'), "light");
+        myChart.clear();
+        var fp = this.props.firstpath
+        var sp = this.props.secondpath
+
+        // if (fp == "" || fp == "卫生"){
+        //     if (sp == "" || sp == "社会卫生总支出"){
+
+        //     } else {
+
+        //     }
+        // } else if (fp == "能源") {
+        //     if (sp == "能源工业投资"){
+
+        //     } else if (sp == "石油消费总量"){
+
+        //     } else {
+
+        //     }
+        // } else if (fp == "资源") {
+
+        // } else {
+
+        // }
+
         var option = {
             legend: {
                 orient: 'horizontal',
@@ -68,7 +93,6 @@ export default class PieChart extends Component{
             },
             dataset: [
               {
-                // 这个 dataset 的 index 是 `0`。
                 source: [
                   ['Product', 'Sales', 'Price', 'Year'],
                   ['Cake', 123, 32, 2011],
@@ -92,37 +116,20 @@ export default class PieChart extends Component{
                   ['Dumpling', 211, 35, 2014],
                   ['Biscuit', 72, 24, 2014]
                 ]
-                // id: 'a'
               },
               {
-                // 这个 dataset 的 index 是 `1`。
-                // 这个 `transform` 配置，表示，此 dataset 的数据，来自于此 transform 的结果。
                 transform: {
                   type: 'filter',
                   config: { dimension: 'Year', value: 2011 }
                 }
-                // 我们还可以设置这些可选的属性： `fromDatasetIndex` 或 `fromDatasetId`。
-                // 这些属性，指定了，transform 的输入，来自于哪个 dataset。例如，
-                // `fromDatasetIndex: 0` 表示输入来自于 index 为 `0` 的 dataset 。又例如，
-                // `fromDatasetId: 'a'` 表示输入来自于 `id: 'a'` 的 dataset。
-                // 当这些属性都不指定时，默认认为，输入来自于 index 为 `0` 的 dataset 。
               },
               {
-                // 这个 dataset 的 index 是 `2`。
-                // 同样，这里因为 `fromDatasetIndex` 和 `fromDatasetId` 都没有被指定，
-                // 那么输入默认来自于 index 为 `0` 的 dataset 。
                 transform: {
-                  // 这个类型为 "filter" 的 transform 能够遍历并筛选出满足条件的数据项。
                   type: 'filter',
-                  // 每个 transform 如果需要有配置参数的话，都须配置在 `config` 里。
-                  // 在这个 "filter" transform 中，`config` 用于指定筛选条件。
-                  // 下面这个筛选条件是：选出维度（ dimension ）'Year' 中值为 2012 的所有
-                  // 数据项。
                   config: { dimension: 'Year', value: 2012 }
                 }
               },
               {
-                // 这个 dataset 的 index 是 `3`。
                 transform: {
                   type: 'filter',
                   config: { dimension: 'Year', value: 2013 }
@@ -134,8 +141,6 @@ export default class PieChart extends Component{
                 type: 'pie',
                 radius: 50,
                 center: ['25%', '50%'],
-                // 这个饼图系列，引用了 index 为 `1` 的 dataset 。也就是，引用了上述
-                // 2011 年那个 "filter" transform 的结果。
                 datasetIndex: 1
               },
               {

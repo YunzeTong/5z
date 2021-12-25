@@ -25,9 +25,16 @@ const { SubMenu } = Menu;
 export default class Map extends Component{
     constructor(){
         super()
+        if (cookie.load("flag")) {
+             console.log("happen")
+            //  cookie.remove("flag")
+        } else {
+            console.log("no happen")
+        }
         this.state = {
             father_dir : "",
             son_dir: "",
+            flag: cookie.load("flag"),
         }
     // console.log(cookie.load('token'))
     axios.get(
@@ -98,6 +105,9 @@ export default class Map extends Component{
               <Menu.Item key="9" onClick={()=>this.change_dir("住宿和餐饮数", "住宿和餐饮营业额")}>住宿和餐饮营业额</Menu.Item>
               <Menu.Item key="10" onClick={()=>this.change_dir("住宿和餐饮数", "住宿和餐饮营业面积")}>住宿和餐饮营业面积</Menu.Item>
             </SubMenu>
+            {this.state.flag?<SubMenu key="sub5" icon={<CoffeeOutlined />} title="房地产">
+              <Menu.Item key="11" onClick={()=>this.change_dir("房地产", "房地产企业数")}>房地产企业数</Menu.Item>
+            </SubMenu>:<></>}
             
           </Menu>
         </Sider>
@@ -112,11 +122,16 @@ export default class Map extends Component{
     </Header>
           <Content style={{ margin: '0 16px' }}>
               <br/>
-            <Button danger type="primary" block shape="round">上传数据</Button>
+            {/* <Button onClick={()=>{this.setState({flag: true})}}  danger type="primary" block shape="round">显示新增数据</Button> */}
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>{this.state.father_dir}</Breadcrumb.Item>
               <Breadcrumb.Item>{this.state.son_dir}</Breadcrumb.Item>
             </Breadcrumb>
+            <Mapchart
+              firstpath={this.state.father_dir}
+              secondpath={this.state.son_dir}> 
+              </Mapchart>
+              <br />
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
               <ColumnChart 
               firstpath={this.state.father_dir}
@@ -132,12 +147,12 @@ export default class Map extends Component{
               ></PieChart>
             </div>
             <br/>
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 660 }}>
-              <Mapchart
+            {/* <div className="site-layout-background" style={{ padding: 24, minHeight: 660 }}> */}
+              {/* <Mapchart
               firstpath={this.state.father_dir}
               secondpath={this.state.son_dir}> 
-              </Mapchart>
-            </div>
+              </Mapchart> */}
+            {/* </div> */}
           </Content>
           <Footer style={{ textAlign: 'center' }}>Presented By RedCloudRule</Footer>
         </Layout>

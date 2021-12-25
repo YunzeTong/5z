@@ -5,7 +5,15 @@ import {
     Form,
     Input,
 } from "antd";
+import cookie from "react-cookies";
 class  Add_source extends React.Component {
+
+    upload_src = () => {
+        cookie.save("flag", true, {path: '/'})
+        alert("上传数据成功")
+    }
+
+
     render() {
         return(
             <div className="form">
@@ -48,7 +56,7 @@ class  Add_source extends React.Component {
                         <Input />
                     </Form.Item>
                     <Form.Item wrapperCol={{ offset: 8 }}>
-                        <Button type="primary" htmlType="submit">
+                        <Button onClick={()=>this.upload_src()} type="primary" htmlType="submit">
                             提交
                         </Button>
                     </Form.Item>
