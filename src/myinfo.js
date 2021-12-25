@@ -69,7 +69,7 @@ export default class Myinfo extends Component{
       <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item key="1" onClick={this.go_myinfo}>我的账号</Menu.Item>
         <Menu.Item key="2" onClick={this.go_map.bind(this)}>产业地图预览</Menu.Item>
-        <Menu.Item key="3" onClick={this.go_mymap.bind(this)}>我的产业地图</Menu.Item>
+        {/* <Menu.Item key="3" onClick={this.go_mymap.bind(this)}>我的产业地图</Menu.Item> */}
         <Menu.Item key="4" danger>退出登录</Menu.Item>
       </Menu>
     </Header>

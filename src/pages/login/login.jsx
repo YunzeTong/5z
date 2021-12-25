@@ -26,7 +26,7 @@ class Login extends Component {
         if (username === '' || password === '' || !reg1.test(username) || !reg2.test(password)) 
              return message.error("数据格式非法")
         else{
-            axios.post('http://192.168.10.72:8080/api/auth/login', {
+            axios.post('http://192.168.43.4:8080/api/auth/login', {
                 username: this.state.username,
                 password: this.state.password,
                 //usertype: this.state.usertype
@@ -40,13 +40,13 @@ class Login extends Component {
                     //     localStorage.setItem("user", JSON.stringify(response.data));
                     //   }
                     if (token !==undefined ){
-                        
-                        that.props.history.push({ pathname: '/index', state: { username: that.state.username, psw: that.state.password } });
+                        if(that.state.usertype==='user')
+                        that.props.history.push({ pathname: '/map', state: { username: that.state.username, psw: that.state.password } });
                         // if(this.state.usertype==='user')
                         // this.props.history.push({ pathname: '/index', state: { username: this.state.username, psw: this.state.password, type:this.state.usertype } });
                         // //window.location.href = '/index';
-                        // if(this.state.usertype==='administrator')
-                        // this.props.history.push({ pathname: '/gindex', state: { username: this.state.username, psw: this.state.password, type:this.state.usertype } });
+                        if(that.state.usertype==='administrator')
+                        that.props.history.push({ pathname: '/adminInfo', state: { username: that.state.username, psw: that.state.password, type:that.state.usertype } });
                     }
                     else{
                         message.warning('账号或密码错误', 2)

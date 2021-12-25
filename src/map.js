@@ -74,6 +74,9 @@ export default class Map extends Component{
     go_mymap = () => {
         window.location.href = '/mymap'
     }
+    exit = () => {
+        window.location.href = '/login'
+    }
 
 
 
@@ -116,8 +119,8 @@ export default class Map extends Component{
       <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']}>
         <Menu.Item key="1" onClick={this.go_myinfo.bind(this)}>我的账号</Menu.Item>
         <Menu.Item key="2" onClick={this.go_map}>产业地图预览</Menu.Item>
-        <Menu.Item key="3" onClick={this.go_mymap.bind(this)}>我的产业地图</Menu.Item>
-        <Menu.Item key="4" danger>退出登录</Menu.Item>
+        {/* <Menu.Item key="3" onClick={this.go_mymap.bind(this)}>我的产业地图</Menu.Item> */}
+        <Menu.Item key="4" danger onClick={()=>this.exit()}>退出登录</Menu.Item>
       </Menu>
     </Header>
           <Content style={{ margin: '0 16px' }}>
@@ -131,7 +134,6 @@ export default class Map extends Component{
               firstpath={this.state.father_dir}
               secondpath={this.state.son_dir}> 
             </Mapchart>
-              <br />
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
               <ColumnChart 
               firstpath={this.state.father_dir}

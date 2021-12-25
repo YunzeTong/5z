@@ -7,16 +7,16 @@ const { TextArea } = Input;
 class PersonalInfor extends Component{
     //从后端获取这些state值
     state={
-        name:'佟昀泽',
-        username:'tyz123456',
-        email:'319010xxxx@zju.edu.cn',
-        sex:'男',
-        university:'ZJU',
-        birthday:moment('2001-01-01', 'YYYY-MM-DD'),
-        interested_Industry:"农业 XXXXXXXXX",
-        balance:'80',
-        text:'大家好,我是佟昀泽',
-        radioValue:2,
+        name:'',
+        username:'user123',
+        email:'3190104733@zju.edu.cn',
+        sex:'',
+        university:'',
+        birthday:'',
+        interested_Industry:"",
+        balance:'0',
+        text:'',
+        radioValue:1,
     }
     
     render(){
@@ -38,7 +38,7 @@ class PersonalInfor extends Component{
                                 <Radio value={2}>付费用户</Radio>
                             </Radio.Group>
                     </Descriptions.Item>
-                    <Descriptions.Item label="AccountBalance" span={2}>${this.state.balance}</Descriptions.Item>
+                    <Descriptions.Item label="AccountBalance" span={2}>{this.state.balance}</Descriptions.Item>
                     <Descriptions.Item label="Interested Industry" span={4}>{this.state.interested_Industry}</Descriptions.Item>
                     <Descriptions.Item label="Personal Profile">
                     <TextArea  rows={10}value={this.state.text} /></Descriptions.Item>

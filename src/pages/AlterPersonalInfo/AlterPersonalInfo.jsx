@@ -6,16 +6,16 @@ const { TextArea } = Input;
 class AlterPersonalInfor extends Component{
     state={
         name:'',
-        username:'tyz123456',
+        username:'user123',
         email:'',
         sex:'',
         university:'',
         birthday:'',
         interested_Industry:"",
-        balance:'80',
+        balance:'0',
         text:'',
         sexValue:1,
-        usertypeValue:2,
+        usertypeValue:1,
     }
     handleSubmit(){
         message.success(("提交成功"))
@@ -111,7 +111,7 @@ class AlterPersonalInfor extends Component{
                                 <Radio value={2}>付费用户</Radio>
                             </Radio.Group>
                     </Descriptions.Item>
-                    <Descriptions.Item label="AccountBalance" span={2}>${this.state.balance}</Descriptions.Item>
+                    <Descriptions.Item label="AccountBalance" span={2}>{this.state.balance}</Descriptions.Item>
                     <Descriptions.Item label="Interested Industry" span={4}>
                     <Form.Item
                             name="industry"
