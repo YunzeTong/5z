@@ -42,6 +42,30 @@ export default class ColumnChart extends Component{
     }
 
     colchart (){
+        // option = {
+        //     xAxis: {
+        //       min:2012
+        //     },
+        //     yAxis: {
+        //       min:90000
+        //     },
+        //     series: [
+        //       {
+        //         symbolSize: 20,
+        //         data: [
+        //           [2013, 118600],
+        //           [2014, 112782],
+        //           [2015, 109953],
+        //           [2016, 105911],
+        //           [2017, 103190],
+        //           [2018, 98605],
+        //           [2019, 98837],
+        //           [2020, 90825]
+        //         ],
+        //         type: 'scatter'
+        //       }
+        //     ]
+        //   };
         console.log("in func",this.props)
         var echarts = require('echarts')
         var myChart = echarts.init(document.querySelector('.bar1'));
@@ -132,7 +156,7 @@ export default class ColumnChart extends Component{
                         emphasis: {
                           focus: 'series'
                         },
-                        data: [600, 132, 101, 124, 235, 260, 1060]
+                        data: [600, 132, 101, 124, 235, 260, 760]
                       }
                     ]
                   };
@@ -572,7 +596,12 @@ export default class ColumnChart extends Component{
                     },
                     series: [
                       {
-                        data: [54866, 50627,	45884	,45347,	45160,	43967,	44921	],
+                        data: [54866, {value:50627, color:'#333333'}, 
+                                    {value:45884, color:'#4f81bd'},
+                                    {value:45347, color:'#c0504d'},
+                                    {value:45160, color:'#9bbb59'},
+                                    {value:43967, color:'#948a54'},
+                                    {value:44921, color:'#e46c0b'}	],
                         type: 'bar',
                         showBackground: true,
                         backgroundStyle: {

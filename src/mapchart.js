@@ -647,8 +647,8 @@ export default class Mapchart extends Component{
     render(){
         return(
             <div>{this.state.firstpath === "资源" && this.state.secondpath === "水资源总量"?
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            <div className="map1" style={{padding: 24, minHeight:660}}>
+            <div className="site-layout-background" style={{ padding: 0, minHeight: 660 }}>
+            <div className="map1" style={{padding: 10, minHeight:660}}>
             </div></div>:<></>}
             </div>
         )

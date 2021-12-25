@@ -130,7 +130,7 @@ export default class Map extends Component{
             <Mapchart
               firstpath={this.state.father_dir}
               secondpath={this.state.son_dir}> 
-              </Mapchart>
+            </Mapchart>
               <br />
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
               <ColumnChart 
@@ -139,7 +139,7 @@ export default class Map extends Component{
               ></ColumnChart>
             </div>
             <br />
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+            <div className="site-layout-background" style={{ padding: 10, minHeight: 600, minWidth:460 }}>
               {/* <PieChart></PieChart> */}
               <PieChart 
               firstpath={this.state.father_dir}
